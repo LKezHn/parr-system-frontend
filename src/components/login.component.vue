@@ -1,7 +1,8 @@
 <template>
     <v-card
-        class="mx-auto my-auto text-center py-5 px-2"
-        width="400"
+        class="mx-auto my-auto text-center py-5 px-5"
+        width="410"
+        rounded="lg"
     > 
         <v-avatar size="72" color="primary" rounded="xl" class="mx-auto mb-4">
             <v-icon icon="mdi-church" size="36" color="white"></v-icon>
@@ -11,7 +12,7 @@
         </v-card-title>
 
         <!-- Subtitulo -->
-        <v-card-subtitle>
+        <v-card-subtitle class="my-3">
         Ingrese sus credenciales para acceder
         </v-card-subtitle>
 
@@ -26,6 +27,7 @@
           variant="outlined"
           density="comfortable"
           class="mb-3"
+          rounded="lg"
         ></v-text-field>
 
         <!-- Contraseña -->
@@ -38,6 +40,7 @@
           density="comfortable"
           type="password"
           class="mb-2"
+          rounded="lg"
         ></v-text-field>
 
         <!-- Opciones -->
@@ -48,10 +51,11 @@
             label="Recordarme"
             density="compact"
             hide-details
+            rounded="xl"
           ></v-checkbox>
 
           <a href="#" class="text-primary text-caption">
-            Olvidé mi contraseña
+            ¿Olvido su contraseña?
           </a>
 
         </div>
@@ -62,6 +66,7 @@
           color="primary"
           size="large"
           class="mb-2"
+          rounded="lg"
         >
           Iniciar sesión
         </v-btn>
