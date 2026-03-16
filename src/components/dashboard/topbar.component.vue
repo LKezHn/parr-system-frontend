@@ -2,7 +2,7 @@
 
 <v-app-bar
   elevation="1"
-  height="64"
+  height="67"
 >
 
   <!-- titulo -->

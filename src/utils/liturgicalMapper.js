@@ -1,11 +1,11 @@
 export function mapSeason(apiSeason) {
 
   const map = {
-    Advent: "adviento",
-    Christmas: "navidad",
-    Lent: "cuaresma",
-    Easter: "pascua",
-    Ordinary: "ordinario"
+    advent: "adviento",
+    christmas: "navidad",
+    lent: "cuaresma",
+    easter: "pascua",
+    ordinary: "ordinario"
   }
 
   return map[apiSeason] || "ordinario"

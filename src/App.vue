@@ -1,17 +1,32 @@
 <script setup>
+import { useTheme } from "vuetify"
 import { useAuthStore } from "@/stores/authStore"
-import { watch } from "vue"
+import { onMounted, watch } from "vue"
 import { useUIStore } from "@/stores/uiStore"
 import { updateVuetifyTheme } from "@/utils/updateTheme"
+import { fetchLiturgicalDay } from "@/services/liturgicalAPI"
+import { mapSeason } from "@/utils/liturgicalMapper"
 
 const ui = useUIStore()
 const authStore = useAuthStore()
+const theme = useTheme()
 
+onMounted(async () => {
+  try {
+
+    const data = await fetchLiturgicalDay()
+    const season = mapSeason(data.season)
+    ui.setSeason(season)
+
+  } catch (error) {
+    console.error("Error obteniendo calendario litúrgico")
+  }
+})
 
 watch(
   () => ui.themeColor,
   (seed) => {
-    updateVuetifyTheme(seed)
+    updateVuetifyTheme(theme, seed)
   },
   { immediate: true }
 )

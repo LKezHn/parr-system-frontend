@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useUIStore = defineStore("ui", {
 
     state: () => ({
-        liturgicalSeason: "pascua"
+        liturgicalSeason: "ordinario"
     }),
 
     getters: {
@@ -14,7 +14,7 @@ export const useUIStore = defineStore("ui", {
                 cuaresma: "#6A1B9A",
                 adviento: "#8E24AA",
                 pascua: "#C8A95B",
-                pentecostes: "#9E2A2B"
+                navidad: "#C8A95B"
             }
 
             return colors[state.liturgicalSeason]
