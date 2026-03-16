@@ -6,6 +6,7 @@
 
   <v-main>
 
+    <TopbarComponent />
     <v-container fluid>
       <router-view />
     </v-container>
