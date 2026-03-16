@@ -11,7 +11,9 @@ const routes = [
   },
    {
     path: "/dashboard",
+    name: "dashboard",
     component: DashboardLayout,
+    meta: { requiresAuth: true },
     children: [
     ]
   }
@@ -23,17 +25,18 @@ const router = createRouter({
   routes
 })
 
-import { useAuthStore } from "@/stores/authStore"
-
-router.beforeEach((to, from, next) => {
+router.beforeEach((to) => {
 
   const auth = useAuthStore()
 
   if (to.meta.requiresAuth && !auth.isAuthenticated) {
-    return next("/")
+    return { name: "login" }
   }
 
-  next()
+  if (to.name === "login" && auth.isAuthenticated) {
+    return { name: 'dashboard' }
+  }
+
 
 })
 
