@@ -1,4 +1,9 @@
 <script setup>
+import { useAuthStore } from "@/stores/authStore"
+
+const authStore = useAuthStore()
+
+authStore.loadFromStorage()
 
 </script>
 
