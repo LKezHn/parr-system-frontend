@@ -54,6 +54,7 @@
             density="compact"
             hide-details
             rounded="xl"
+            color="primary"
           ></v-checkbox>
 
           <a href="#" class="text-primary text-caption text-decoration-none">
