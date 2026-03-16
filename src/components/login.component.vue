@@ -93,8 +93,10 @@ import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 import api from "@/services/api"
+import { useAuthStore } from '@/stores/authStore'
 
 const router = useRouter()
+const authStore = useAuthStore()
 
 const form = ref(null)
 const username = ref('')
@@ -127,7 +129,7 @@ const login = async() => {
       password: password.value
     })
 
-    localStorage.setItem("token", response.data.access_token)
+    authStore.setToken(response.data.access_token)
     router.replace("/dashboard")
 
   }catch(error) {
