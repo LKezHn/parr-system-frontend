@@ -15,9 +15,11 @@ import '@fontsource/inter/600.css'
 import '@fontsource/inter/700.css'
 
 const app = createApp(App)
+const pinia = createPinia()
+
 
 app.use(vuetify)
 app.use(router)
-app.use(createPinia())
+app.use(pinia)
 
 app.mount('#app')
