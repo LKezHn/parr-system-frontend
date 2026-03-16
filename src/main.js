@@ -7,6 +7,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 
 import { vuetify } from './plugins/vuetify'
+import router from './router'
 
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/500.css'
@@ -16,6 +17,7 @@ import '@fontsource/inter/700.css'
 const app = createApp(App)
 
 app.use(vuetify)
+app.use(router)
 app.use(createPinia())
 
 app.mount('#app')

@@ -1,3 +1,12 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+.v-field__append-inner .v-icon {
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.v-field__append-inner .v-icon:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
