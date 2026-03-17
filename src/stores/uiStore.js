@@ -3,7 +3,8 @@ import { defineStore } from 'pinia'
 export const useUIStore = defineStore("ui", {
 
     state: () => ({
-        liturgicalSeason: "ordinario"
+        liturgicalSeason: "ordinario",
+        appLoading: true
     }),
 
     getters: {
@@ -26,6 +27,10 @@ export const useUIStore = defineStore("ui", {
 
         setSeason(season) {
             this.liturgicalSeason = season
+        },
+
+        setLoading(value) {
+            this.appLoading = value
         }
 
     }
