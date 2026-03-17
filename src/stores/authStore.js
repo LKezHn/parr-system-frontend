@@ -21,7 +21,7 @@ export const useAuthStore = defineStore("auth",{
             localStorage.setItem("token", token)
 
             try{
-                this.user = jwtDecode(tokem)
+                this.user = jwtDecode(token)
             }catch {
                 this.logout()
             }
