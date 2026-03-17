@@ -8,7 +8,7 @@
           <v-icon icon="mdi-church" size="50" color="white"></v-icon>
       </v-avatar>
       <v-card-title class="justify-center font-weight-black">
-      Sistema de Iglesia
+      Sistema de Iglesia <br /> {{ parishStore.parishName }}
       </v-card-title>
 
       <!-- Subtitulo -->
@@ -95,8 +95,10 @@ import { useRouter } from 'vue-router'
 
 import api from "@/services/api"
 import { useAuthStore } from '@/stores/authStore'
+import { useParishStore } from '@/stores/parishStore'
 
 const router = useRouter()
+const parishStore = useParishStore()
 const authStore = useAuthStore()
 
 const form = ref(null)
