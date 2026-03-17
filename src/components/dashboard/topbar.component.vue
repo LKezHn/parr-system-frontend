@@ -1,11 +1,7 @@
 <template>
+<v-app-bar elevation="1" height="67.5">
 
-<v-app-bar
-  elevation="1"
-  height="67"
->
-
-  <!-- titulo -->
+  <!-- Título / parroquia -->
 
   <v-app-bar-title class="font-weight-medium">
     {{ title }}
@@ -13,14 +9,13 @@
 
   <v-spacer />
 
-  <!-- notificaciones -->
+  <!-- Saludo -->
 
-  <v-btn
-    icon="mdi-bell-outline"
-    variant="text"
-  />
+  <span class="text-body-2 mr-3">
+    Hola, <strong>{{ username }}</strong>
+  </span>
 
-  <!-- usuario -->
+  <!-- Menú usuario -->
 
   <v-menu offset-y>
 
@@ -28,23 +23,16 @@
 
       <v-btn
         v-bind="props"
+        icon
         variant="text"
-        class="ml-2"
       >
-
         <v-avatar
-          size="32"
+          size="36"
           color="primary"
           rounded="lg"
-          class="mr-2"
         >
-          <v-icon icon="mdi-account" color="white" size="18"/>
+          <v-icon icon="mdi-account" color="white" />
         </v-avatar>
-
-        <span class="text-body-2">
-          {{ username }}
-        </span>
-
       </v-btn>
 
     </template>
@@ -74,7 +62,6 @@
   </v-menu>
 
 </v-app-bar>
-
 </template>
 
 <script setup>
@@ -88,7 +75,7 @@ const router = useRouter()
 
 const title = "Dashboard"
 
-const username = computed(() => auth.user?.username || "Usuario")
+const username = computed(() => auth.user?.name || "Usuario")
 
 function logout() {
 
