@@ -1,7 +1,5 @@
 import { cacheLiturgicalData, getCachedLiturgicalData } from "@/utils/liturgicalCache"
-import axios from "axios"
-
-const CAL_API = "http://calapi.inadiutorium.cz/api/v0/en/calendars/default/today"
+import api from "./api"
 
 export async function fetchLiturgicalDay() {
 
@@ -11,7 +9,7 @@ export async function fetchLiturgicalDay() {
         return cache.data
     }
     
-    const { data } = await axios.get(CAL_API)
+    const { data } = await api.get("/external/liturgical_time")
     cacheLiturgicalData(data)
     return data
 
