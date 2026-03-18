@@ -17,10 +17,13 @@ onMounted(async () => {
 
   try {
 
-    const data = await fetchLiturgicalDay()
-    const season = mapSeason(data.season)
-    parishStore.fetchParish()
+    const [parishData, liturgicalData] = await Promise.all([
+      parishStore.fetchParish(),
+      fetchLiturgicalDay()
+    ])
 
+    const season = mapSeason(liturgicalData.season)
+    
     ui.setSeason(season)
 
   } catch (error) {
