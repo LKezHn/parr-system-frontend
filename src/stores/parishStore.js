@@ -5,7 +5,6 @@ export const useParishStore = defineStore("parish", {
 
   state: () => ({
     parish: null,
-    loading: false
   }),
 
   getters: {
@@ -20,7 +19,6 @@ export const useParishStore = defineStore("parish", {
     async fetchParish() {
 
       try {
-        this.loading = true
 
         const subdomain = window.location.hostname.split(".")[0]
 
@@ -35,8 +33,6 @@ export const useParishStore = defineStore("parish", {
 
         console.error("Error obteniendo parroquia")
 
-      } finally {
-        this.loading = false
       }
 
     }
