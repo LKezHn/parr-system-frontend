@@ -21,7 +21,14 @@ export const useParishStore = defineStore("parish", {
 
       try {
         this.loading = true
-        const { data } = await api.get("/context/parish")
+
+        const subdomain = window.location.hostname.split(".")[0]
+
+        const { data } = await api.get("/context/parish", {
+            headers: {
+              "X-Subdomain": subdomain
+            }
+        })
         this.parish = data
 
       } catch (error) {
