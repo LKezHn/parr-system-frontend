@@ -7,7 +7,7 @@
     src="@/assets/404_definitive.svg"
     alt="404"
     class="mb-6"
-    style="max-width: 450px; width: 450px;"
+    style="max-width: 60%; width: 60%;"
   />
 
   <!-- Título -->
