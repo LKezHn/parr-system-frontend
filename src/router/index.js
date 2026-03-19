@@ -2,6 +2,8 @@ import DashboardLayout from "@/layouts/dashboard.layout.vue"
 import LoginView from "@/views/login/login.view.vue"
 import { createRouter, createWebHistory } from "vue-router"
 import { useAuthStore } from "@/stores/authStore"
+import NotFound from "@/views/errors/NotFound.vue"
+
 
 const routes = [
   {
@@ -16,6 +18,11 @@ const routes = [
     meta: { requiresAuth: true },
     children: [
     ]
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not-found",
+    component: NotFound
   }
 
 ]
