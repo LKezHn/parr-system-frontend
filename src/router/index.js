@@ -3,7 +3,7 @@ import LoginView from "@/views/login/login.view.vue"
 import { createRouter, createWebHistory } from "vue-router"
 import { useAuthStore } from "@/stores/authStore"
 import NotFound from "@/views/errors/NotFound.vue"
-
+import Forbidden from "@/views/errors/Forbidden.vue"
 
 const routes = [
   {
@@ -23,7 +23,12 @@ const routes = [
     path: "/:pathMatch(.*)*",
     name: "not-found",
     component: NotFound
-  }
+  },
+  {
+  path: "/forbidden",
+  name: "forbidden",
+  component: Forbidden
+}
 
 ]
 
@@ -44,6 +49,9 @@ router.beforeEach((to) => {
     return { name: 'dashboard' }
   }
 
+  if (to.meta.roles && !to.meta.roles.includes(auth.user?.role)) {
+    return { name: "forbidden" }
+  }
 
 })
 
